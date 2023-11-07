@@ -1,0 +1,15 @@
+<!--
+ - Created by AlehZhuk on 10/25/2023.
+ -->
+
+<!-- Messages View -->
+<template>
+    <div class="slds-p-around_small cm-messages-container slds-scrollable_y">
+        <div for:each={messages} for:item=message key={message} >
+            <c-message-container
+                key={message}
+                message={message}>
+            </c-message-container>
+        </div>
+    </div>
+</template>

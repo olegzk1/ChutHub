@@ -1,0 +1,28 @@
+<!--
+ - Created by AlehZhuk on 10/25/2023.
+ -->
+
+<!-- ChatMessage Sender -->
+<template>
+    <lightning-card>
+        <lightning-layout class="slds-m-around_medium">
+            <lightning-layout-item flexibility="auto" class="slds-m-around_small">
+                <lightning-input
+                        class="message-input"
+                        variant="label-hidden"
+                        max-length={maxLength}
+                >
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-m-around_small">
+                <lightning-button
+                        class="send-message-button"
+                        icon-name="action:upload"
+                        variant="brand"
+                        onclick={publishMessage}
+                >
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
