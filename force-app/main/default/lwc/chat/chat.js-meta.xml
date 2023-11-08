@@ -5,6 +5,7 @@
     <isExposed>true</isExposed>
     <targets>
         <target>lightning__AppPage</target>
+        <target>lightning__UtilityBar</target>
     </targets>
     <masterLabel>Chat</masterLabel>
 </LightningComponentBundle>

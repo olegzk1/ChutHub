@@ -4,9 +4,8 @@
 
 <!-- Message Container -->
 <template>
-    <div class={message.align}
-         ondblclick= {handleClick}>
-        <label>{message.owner}</label>
-        <p>{message.text}</p>
+    <div class={message.align} ondblclick= {handleClick}>
+        <lightning-formatted-rich-text value={message.text}>
+        </lightning-formatted-rich-text>
     </div>
 </template>

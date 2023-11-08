@@ -13,16 +13,16 @@
         </div>
         <lightning-layout>
             <lightning-layout-item flexibility="auto">
-                <lightning-input
+                <lightning-input-rich-text
                         class="cm-text_input"
-                        variant="label-hidden"
-                        value={messageText}
-                ></lightning-input>
+                        variant="bottom-toolbar"
+                        value={messageText}>
+                ></lightning-input-rich-text>
             </lightning-layout-item>
             <lightning-layout-item class="slds-p-left_small">
                 <lightning-button-icon
                         class="send-message-button"
-                        icon-name="action:upload"
+                        icon-name="utility:send"
                         variant="brand"
                         onclick={sendMessage}
                 ></lightning-button-icon>

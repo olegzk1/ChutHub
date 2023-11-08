@@ -52,6 +52,7 @@
     </types>
     <types>
         <members>ChatHub</members>
+        <members>ChatHub_UtilityBar</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -65,6 +66,18 @@
     <types>
         <members>Chat_Message__c.Temp_Id__c</members>
         <name>CustomIndex</name>
+    </types>
+    <types>
+        <members>AppSwitcher</members>
+        <name>AppMenu</name>
+    </types>
+    <types>
+        <members>ChatHub</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Edit_Message</members>
+        <name>CustomLabel</name>
     </types>
     <version>59.0</version>
 </Package>

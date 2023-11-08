@@ -3,8 +3,10 @@
  */
 
 import {api, LightningElement} from 'lwc';
+import EDIT_MESSAGE_LABEL from '@salesforce/label/c.Edit_Message';
 
 export default class MessageEditComponent extends LightningElement {
+    label = EDIT_MESSAGE_LABEL;
     @api
     textForEdit;
 
