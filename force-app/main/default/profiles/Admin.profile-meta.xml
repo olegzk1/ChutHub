@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
-        <apexClass>ChatMessage</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MessageController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MessageMapper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -19,8 +11,28 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Chat_Hub_Message__e.Readed__c</field>
+        <field>Chat_Hub_Message__e.Action__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Chat_Hub_Message__e.Chat_Message_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Chat_Hub_Message__e.From_Event__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Chat_Hub_Message__e.Read__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Chat_Hub_Message__e.Temp_Id__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -40,6 +52,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Chat_Message__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Chat_Message__c.Temp_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Chat_Message__c.Updated_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>

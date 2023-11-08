@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>MessageEdit</masterLabel>
+    <isExposed>true</isExposed>
+    <description>For message editing</description>
+    <lightningMessageFields>
+        <fieldName>text</fieldName>
+        <description>Message text field</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>id</fieldName>
+        <description>Message id field</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>tempId</fieldName>
+        <description>Message temp id field for if no id</description>
+    </lightningMessageFields>
+</LightningMessageChannel>

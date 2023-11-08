@@ -4,25 +4,29 @@
 
 <!-- ChatMessage Sender -->
 <template>
-    <lightning-card>
-        <lightning-layout class="slds-m-around_medium">
-            <lightning-layout-item flexibility="auto" class="slds-m-around_small">
+    <div class="slds-m-around_medium">
+        <div if:true={isEdit}>
+            <c-message-edit-component
+                    text-for-edit={messageTextForEdit}
+                    oncancel={toDefaultState}
+            ></c-message-edit-component>
+        </div>
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto">
                 <lightning-input
-                        class="message-input"
+                        class="cm-text_input"
                         variant="label-hidden"
-                        max-length={maxLength}
-                >
-                </lightning-input>
+                        value={messageText}
+                ></lightning-input>
             </lightning-layout-item>
-            <lightning-layout-item class="slds-m-around_small">
-                <lightning-button
+            <lightning-layout-item class="slds-p-left_small">
+                <lightning-button-icon
                         class="send-message-button"
                         icon-name="action:upload"
                         variant="brand"
-                        onclick={publishMessage}
-                >
-                </lightning-button>
+                        onclick={sendMessage}
+                ></lightning-button-icon>
             </lightning-layout-item>
         </lightning-layout>
-    </lightning-card>
+    </div>
 </template>

@@ -4,7 +4,8 @@
 
 <!-- Message Container -->
 <template>
-    <div class={message.align} onclick={handleClick}>
+    <div class={message.align}
+         ondblclick= {handleClick}>
         <label>{message.owner}</label>
         <p>{message.text}</p>
     </div>
