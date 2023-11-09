@@ -1,0 +1,27 @@
+/**
+ * Created by AlehZhuk on 11/8/2023.
+ */
+
+.cm-message_container {
+    display: flex;
+    flex-direction: column;
+    /*border-radius: 8px;*/
+    /*background-color: #0088cc;*/
+}
+
+.cm-user_info {
+    font-weight: bold;
+    color: #555;
+}
+
+.cm-message_info {
+    word-wrap: break-word;
+}
+
+.cm-edit_status {
+    font-size: 8px;
+    font-style: italic;
+    font-weight: bold;
+    color: #555;
+}
+

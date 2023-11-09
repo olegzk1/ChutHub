@@ -5,7 +5,6 @@
 import {LightningElement, api, track, wire} from 'lwc';
 import {subscribe}  from 'lightning/empApi';
 import getMessageHistory from '@salesforce/apex/MessageController.getMessageHistory';
-import Id from '@salesforce/user/Id';
 
 export default class MessagesView extends LightningElement {
 
@@ -16,14 +15,14 @@ export default class MessagesView extends LightningElement {
     messages = [];
     @track
     history = [];
-    currentUserId = Id;
+    error;
 
     connectedCallback() {
         getMessageHistory()
-            .then(value =>
-                this.messages = value.map(value1 =>
-                    this.chatMessageToMessage(value1)))
-            .catch(reason => console.log(reason));
+            .then(history =>
+                this.messages = history.map(message =>
+                    this.chatMessageToMessage(message)))
+            .catch(error => this.error = error);
         this.handleSubscribe();
     }
 
@@ -37,40 +36,44 @@ export default class MessagesView extends LightningElement {
     handleSubscribe() {
         subscribe(this.channelName, -1, (response) => {
             const payload = response.data.payload;
-            this.messages.push(this.eventToMessage(payload));
+            if (payload.Action__c ==='Edit') {
+                const message = (!payload.Chat_Message_Id__c && payload.From_Event__c) ?
+                    this.messages.find(msg => msg.tempId === payload.Temp_Id__c) :
+                    this.messages.find(msg => msg.id === payload.Chat_Message_Id__c);
+                this.updateMessage(message, payload);
+            } else {
+                this.messages.push(this.eventToMessage(payload));
+            }
         }).then(response => {
             this.subscription = response;
         });
     }
 
+    updateMessage(message, payload) {
+        message.text = payload.Text__c;
+        message.status = payload.Action__c;
+    }
+
     eventToMessage(message) {
-        let isOwner = message.CreatedById === this.currentUserId;
         return {
+            id: message.Chat_Message_Id__c,
+            tempId: message.Temp_Id__c,
             text: message.Text__c,
+            status: message.Action__c,
             owner: message.CreatedById,
             lastName: message.User_Name__c,
-            date: message.CreatedDate,
-            isOwner: isOwner
+            date: message.CreatedDate
         };
     }
 
     chatMessageToMessage(message) {
-        let isOwner = message.OwnerId === this.currentUserId;
         return {
+            id: message.Id,
+            tempId: message.Temp_Id__c,
             text: message.Message_Text__c,
+            status: message.Status__c,
             owner: message.OwnerId,
-            date: message.Created_Date__c,
-            isOwner: isOwner,
-            align: this.getAlign(isOwner)
+            date: message.Created_Date__c
         }
     }
-
-    getAlign(isOwner) {
-        if (isOwner)
-            return 'slds-text-align_right';
-        else
-            return 'slds-text-align_left';
-    }
-
-    //if isOwner -> toRight, else set left class
 }

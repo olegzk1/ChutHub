@@ -1,0 +1,25 @@
+<!--
+ - Created by AlehZhuk on 11/7/2023.
+ -->
+
+<!-- Message Edit Component -->
+<template>
+    <div class="cm-message-edit slds-m-bottom_small">
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto">
+                <lightning-textarea
+                        disabled="true"
+                        label={label}
+                        value={textForEdit}>
+                </lightning-textarea>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-p-left_small slds-align-bottom">
+                <lightning-button-icon
+                        class="close-message-edit"
+                        icon-name="action:close"
+                        onclick={handleClose}>
+                </lightning-button-icon>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

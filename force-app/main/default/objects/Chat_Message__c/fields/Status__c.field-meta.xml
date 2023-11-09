@@ -15,6 +15,21 @@
                 <default>false</default>
                 <label>New</label>
             </value>
+            <value>
+                <fullName>Edit</fullName>
+                <default>false</default>
+                <label>Edit</label>
+            </value>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+            <value>
+                <fullName>Delete</fullName>
+                <default>false</default>
+                <label>Delete</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
