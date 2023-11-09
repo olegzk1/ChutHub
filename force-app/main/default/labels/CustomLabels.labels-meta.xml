@@ -7,4 +7,11 @@
         <shortDescription>Edit Message</shortDescription>
         <value>Edit Message</value>
     </labels>
+    <labels>
+        <fullName>Edited_Status</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edited Status</shortDescription>
+        <value>edited</value>
+    </labels>
 </CustomLabels>

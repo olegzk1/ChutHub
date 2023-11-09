@@ -4,8 +4,15 @@
 
 <!-- Message Container -->
 <template>
-    <div class={message.align} ondblclick= {handleClick}>
-        <lightning-formatted-rich-text value={message.text}>
-        </lightning-formatted-rich-text>
+    <div class={messageContainerClass} ondblclick= {handleClick} >
+        <div class="cm-user_info">
+            <span>{message.owner}</span>
+        </div>
+        <div class="cm-message_info">
+            <span>{message.text}</span>
+        </div>
+        <div if:true={isEdit} class="cm-edit_status">
+            <span>{editedStatus}</span>
+        </div>
     </div>
 </template>

@@ -5,7 +5,6 @@
 import {LightningElement, api, track, wire} from 'lwc';
 import {subscribe}  from 'lightning/empApi';
 import getMessageHistory from '@salesforce/apex/MessageController.getMessageHistory';
-import Id from '@salesforce/user/Id';
 
 export default class MessagesView extends LightningElement {
 
@@ -16,7 +15,6 @@ export default class MessagesView extends LightningElement {
     messages = [];
     @track
     history = [];
-    currentUserId = Id;
     error;
 
     connectedCallback() {
@@ -57,7 +55,6 @@ export default class MessagesView extends LightningElement {
     }
 
     eventToMessage(message) {
-        let isOwner = this.isOwner(message.CreatedById);
         return {
             id: message.Chat_Message_Id__c,
             tempId: message.Temp_Id__c,
@@ -65,34 +62,18 @@ export default class MessagesView extends LightningElement {
             status: message.Action__c,
             owner: message.CreatedById,
             lastName: message.User_Name__c,
-            date: message.CreatedDate,
-            isOwner: isOwner,
-            align: this.getAlign(isOwner)
+            date: message.CreatedDate
         };
     }
 
     chatMessageToMessage(message) {
-        let isOwner = this.isOwner(message.OwnerId);
         return {
             id: message.Id,
             tempId: message.Temp_Id__c,
             text: message.Message_Text__c,
             status: message.Status__c,
             owner: message.OwnerId,
-            date: message.Created_Date__c,
-            isOwner: isOwner,
-            align: this.getAlign(isOwner)
+            date: message.Created_Date__c
         }
-    }
-
-    isOwner(ownerId) {
-        return ownerId === this.currentUserId;
-    }
-
-    getAlign(isOwner) {
-        if (isOwner)
-            return 'slds-text-align_right';
-        else
-            return 'slds-text-align_left';
     }
 }
